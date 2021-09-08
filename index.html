@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Metronome</title>
+  </head>
+  <body>
+    <div id="app">
+      <audio id="bee" ref="bee" src="src/bee.mp3"></audio>
+      <audio id="boo" ref="boo" src="src/boo.mp3"></audio>
+      <form @submit.prevent="submit">
+        <label for="">What is the BPM?</label>
+        <br />
+        <input type="number" min="20" max="999" placeholder="BPM" v-model="bpm" />
+        <br />
+        <br />
+        <label for="">How many major sections are there?</label>
+        <br />
+        <input type="text" v-model="majorSections" /><br />
+        <br />
+        <label for="">How many sub sections are there?</label>
+        <br />
+        <input type="text" v-model="subSections" />
+        <br />
+        <br />
+        <input type="submit" @click="start" value="Start" :disabled="playing"/> <input type="button" value="Stop" @click="stop" /> <br /><br />
+        <span>{{r_str}}</span>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
